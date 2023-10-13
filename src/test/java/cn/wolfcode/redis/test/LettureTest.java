@@ -18,4 +18,10 @@ public class LettureTest {
         template.opsForValue().set("name", "dafei");
         System.out.println(template.opsForValue().get("name"));
     }
+
+    @Test
+    public void testDouble() {
+        Double db = 3.0000;
+        System.out.println(String.format("%.0f", db));
+    }
 }

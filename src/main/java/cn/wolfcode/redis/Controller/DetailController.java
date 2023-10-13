@@ -1,7 +1,7 @@
 package cn.wolfcode.redis.Controller;
 
+import cn.wolfcode.redis.Service.DetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class DetailController {
 
     @Autowired
-    private StringRedisTemplate template;
+    private DetailService detailService;
 
     @PostMapping ("/incr")
     public Integer incr(String id){
-        Long number  = template.opsForValue().increment(id);
+        Long number  = detailService.incrementId(id);
         return number.intValue();
     }
 }
